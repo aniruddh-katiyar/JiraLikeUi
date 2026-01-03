@@ -1,0 +1,5 @@
+.content {
+  padding-top: 64px;   /* header height */
+  padding-bottom: 40px; /* footer height */
+  min-height: calc(100vh - 104px);
+}
