@@ -1,0 +1,55 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 64px;
+  width: 100%;
+  max-width: 100vw;
+
+  background-color: #0747a6;
+  color: white;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 16px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.logo {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.right {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.logout {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+}
