@@ -1,114 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>User Registration</title>
-</head>
-<body>
-  <main>
-    <h1>Create your account</h1>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" [(ngModel)]="model.name" required>
 
-    <form action="#" method="post" novalidate>
-      <!-- Personal details -->
-      <fieldset>
-        <legend>Personal details</legend>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" [(ngModel)]="model.email" required>
 
-        <div>
-          <label for="fullName">Full name</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            placeholder="Aniruddh Kumar"
-            required
-          />
-        </div>
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" [(ngModel)]="model.password" required>
 
-        <div>
-          <label for="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="aniruddh"
-            minlength="3"
-            maxlength="20"
-            pattern="[a-zA-Z0-9_]+"
-            title="Use letters, numbers, and underscores only."
-            required
-          />
-        </div>
+  <label for="role">Role</label>
+  <input id="role" type="text" name="role" [(ngModel)]="model.role">
 
-        <div>
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-            required
-          />
-        </div>
+  <button type="submit" [disabled]="!form.valid">Register</button>
+</form>
 
-        <div>
-          <label for="phone">Phone (optional)</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+91 98765 43210"
-            pattern="^\+?[0-9\s\-]{7,15}$"
-            title="Enter a valid phone number."
-          />
-        </div>
-      </fieldset>
-
-      <!-- Security -->
-      <fieldset>
-        <legend>Security</legend>
-
-        <div>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="••••••••"
-            minlength="8"
-            required
-          />
-        </div>
-
-        <div>
-          <label for="confirmPassword">Confirm password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="••••••••"
-            minlength="8"
-            required
-          />
-        </div>
-      </fieldset>
-
-      <!-- Terms -->
-      <div>
-        <label>
-          <input type="checkbox" name="terms" required />
-          I agree to the Terms and Privacy Policy
-        </label>
-      </div>
-
-      <button type="submit">Create account</button>
-
-      <!-- Helper text -->
-      <p>
-        Already have an account?
-        <a href="#">Sign in</a>
-      </p>
-    </form>
-  </main>
-</body>
-</html>
+<div *ngIf="submitted">
+  <h3>Registration Data</h3>
+  <p><strong>Name:</strong> {{ submittedData.name }}</p>
+  <p><strong>Email:</strong> {{ submittedData.email }}</p>
+  <p><strong>Password:</strong> {{ submittedData.password }}</p>
+  <p><strong>Role:</strong> {{ submittedData.role }}</p>
+</div>
