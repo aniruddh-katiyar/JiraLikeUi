@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { UserRegistartion } from './user-registartion/user-registartion';
-import UserLogin from './user-login/user-login';
+
 import { Dashboard } from './dashboard/dashboard';
 import { Project } from './project/project';
 import { Issue } from './issue/issue';
+import { UserLogin } from './user-login/user-login';
 
 export const routes: Routes = [
   // Default route
