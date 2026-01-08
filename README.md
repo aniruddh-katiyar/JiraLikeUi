@@ -1,59 +1,53 @@
-# JiraLikeUi
+# JiraLike UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+This is the Angular frontend for the JiraLike application.
+The project is currently under active development and is primarily built for practice and active learning.
 
-## Development server
+The goal of this UI is to understand and apply Angular concepts in a real-world style application while integrating with a backend API.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Overview
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The UI is intended to provide basic screens for:
+- User authentication
+- Common layout and navigation
+- Viewing and managing project and issue-related data
 
-## Code scaffolding
+Features and structure are evolving as learning and development progress.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Current Focus
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Practicing Angular component structure
+- Routing and navigation
+- Service-based backend API integration
+- Form handling for login and registration
+- Basic state handling using browser storage
 
-```bash
-ng generate --help
-```
+Additional components and screens will be added gradually.
 
-## Building
+---
 
-To build the project run:
+## Tech Stack
 
-```bash
-ng build
-```
+- Angular
+- TypeScript
+- HTML / CSS
+- REST API integration
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Backend Integration
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+This frontend communicates with a REST-based backend built using ASP.NET Core.
+Both frontend and backend are being developed in parallel as part of active learning.
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## How to Run the Project
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Install dependencies  
+   ```bash
+   npm install
