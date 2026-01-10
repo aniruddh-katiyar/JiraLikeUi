@@ -9,13 +9,12 @@ import { AuthResponse } from '../models/auth-response.model';
 })
 export class UserService {
 
-  private apiUrl = "https://localhost:44322/api/Users";
-private apiUrllogin = "https://localhost:44322/login";
+  private apiUrllogin = "https://localhost:44322/api/auth/login";
 
   constructor(private http: HttpClient) {}
 
   registerUser(user: UserRegistartionInterface) {
-    return this.http.post(this.apiUrl, user);
+    return this.http.post("/users", user);
   }
   userlogin(userLogin : UserLoginInterface)
   {

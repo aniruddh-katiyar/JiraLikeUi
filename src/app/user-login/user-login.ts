@@ -1,17 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user-service';
 import { UserLoginInterface } from '../models/user-login.model';
-import { AuthResponse } from '../models/auth-response.model';
-
 
 @Component({
   selector: 'app-user-login',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './user-login.html',
-  styleUrl: './user-login.css'
+  styleUrl: './user-login.css',
 })
 export class UserLogin {
 
@@ -24,6 +23,7 @@ export class UserLogin {
 
   apiMessage = '';
   loading = false;
+  submitted = false;
 
   onSubmit() {
 
@@ -31,24 +31,35 @@ export class UserLogin {
 
     this.userService.userlogin(this.userLogin)
       .subscribe({
-        next: (response: AuthResponse) => {
+        next: (response: { accessToken: string; refreshToken: string }) => {
 
-          localStorage.setItem("accessToken", response.accessToken);
-          localStorage.setItem("refreshToken", response.refreshToken);
+          localStorage.setItem('accessToken', response.accessToken);
+          localStorage.setItem('refreshToken', response.refreshToken);
+          localStorage.setItem('loggedIn', 'true');
 
-          this.apiMessage = "Login successful";
-
-          this.router.navigate(['/home']);
+          this.apiMessage = 'You are logged in';
+          this.submitted = true;
 
           this.loading = false;
+
+          this.router.navigate(['/dashboard']);
         },
 
-        error: (err: Object) => {
-          this.apiMessage = "Invalid credentials";
+        error: () => {
+          this.apiMessage = 'Invalid credentials';
           this.loading = false;
         }
       });
 
+  }
+
+  logout() {
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+
+    this.submitted = false;
+    this.apiMessage = '';
   }
 
 }
