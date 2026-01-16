@@ -1,5 +1,5 @@
 import { HttpInterceptorFn } from "@angular/common/http";
-import { environmement } from "../../environments/environment";
+import { environment } from "../../environments/environment";
 
 export const ApiBaseUrlInterceptor : HttpInterceptorFn = (req, next) =>
 {
@@ -9,7 +9,7 @@ export const ApiBaseUrlInterceptor : HttpInterceptorFn = (req, next) =>
     }
     const updatedRequest = req.clone
         ({
-            url : environmement.apiBaseUrl + req.url
+            url : environment.apiBaseUrl + req.url
         });
     return next(updatedRequest)
 }
