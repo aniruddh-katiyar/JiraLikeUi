@@ -1,0 +1,149 @@
+<section class="project-dashboard">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p class="subtitle">Project health overview</p>
+    </div>
+    <button class="btn-secondary">Customize</button>
+  </header>
+
+  <!-- KEY METRICS -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <span>Total Issues</span>
+      <strong>72</strong>
+      <small>↔ stable</small>
+    </div>
+    <div class="stat-card">
+      <span>Open</span>
+      <strong class="open">18</strong>
+      <small>↓ 4 this week</small>
+    </div>
+    <div class="stat-card">
+      <span>In Progress</span>
+      <strong class="progress">21</strong>
+      <small>↑ 2 today</small>
+    </div>
+    <div class="stat-card">
+      <span>Completed</span>
+      <strong class="done">33</strong>
+      <small>↑ 6 this sprint</small>
+    </div>
+  </section>
+
+  <!-- PRIMARY GRID -->
+  <section class="dashboard-grid">
+
+    <!-- SPRINT HEALTH -->
+    <div class="card">
+      <h3>Sprint Health</h3>
+      <p class="muted">Sprint 14 · Ends in 3 days</p>
+
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 62%"></div>
+      </div>
+
+      <div class="sprint-stats">
+        <span>Committed: 80 SP</span>
+        <span>Done: 50 SP</span>
+      </div>
+    </div>
+
+    <!-- RISK INDICATORS -->
+    <div class="card danger">
+      <h3>Needs Attention</h3>
+      <ul class="alert-list">
+        <li>🔴 5 Overdue Issues</li>
+        <li>🔴 3 High Priority Bugs</li>
+        <li>🟠 2 Blocked Tasks</li>
+      </ul>
+    </div>
+
+    <!-- ISSUE BREAKDOWN -->
+    <div class="card">
+      <h3>Issue Breakdown</h3>
+      <ul class="breakdown-list">
+        <li><span>Epics</span><strong>3</strong></li>
+        <li><span>Stories</span><strong>18</strong></li>
+        <li><span>Tasks</span><strong>42</strong></li>
+        <li><span>Bugs</span><strong>9</strong></li>
+      </ul>
+    </div>
+
+    <!-- EPIC PROGRESS -->
+    <div class="card">
+      <h3>Epic Progress</h3>
+
+      <div class="epic">
+        <span>Authentication Revamp</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 60%"></div>
+        </div>
+      </div>
+
+      <div class="epic">
+        <span>Billing Integration</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 40%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNERSHIP -->
+    <div class="card">
+      <h3>Ownership</h3>
+      <p class="muted">Top assignees</p>
+      <ul class="owner-list">
+        <li>Aniruddh <strong>12</strong></li>
+        <li>Rahul <strong>9</strong></li>
+        <li>Sneha <strong>7</strong></li>
+      </ul>
+      <p class="warning">Unassigned issues: 4</p>
+    </div>
+
+    <!-- MY ISSUES -->
+    <div class="card wide">
+      <h3>My Open Issues</h3>
+      <table class="issues-table">
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>JIR-101</td>
+            <td>Bug</td>
+            <td>Login failure on Safari</td>
+            <td class="high">High</td>
+            <td class="open">Open</td>
+          </tr>
+          <tr>
+            <td>JIR-102</td>
+            <td>Story</td>
+            <td>Kafka consumer lag</td>
+            <td class="medium">Medium</td>
+            <td class="progress">In Progress</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="card">
+      <h3>Recent Activity</h3>
+      <ul class="activity-list">
+        <li><strong>JIR-101</strong> moved to In Progress <span>2h ago</span></li>
+        <li><strong>JIR-099</strong> marked Completed <span>5h ago</span></li>
+        <li><strong>JIR-103</strong> created <span>1d ago</span></li>
+      </ul>
+    </div>
+
+  </section>
+</section>

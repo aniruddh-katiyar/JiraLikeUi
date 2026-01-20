@@ -1,0 +1,126 @@
+<section class="members-page">
+
+  <!-- PAGE HEADER -->
+  <header class="members-header">
+    <div class="header-left">
+      <h1>Members</h1>
+      <p class="subtitle">
+        Manage project members, roles, and access
+      </p>
+    </div>
+
+    <div class="header-actions">
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search members by name or email"
+      />
+      <button class="btn-primary">+ Add Member</button>
+    </div>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <select>
+      <option>All Roles</option>
+      <option>Admin</option>
+      <option>Developer</option>
+      <option>QA</option>
+      <option>Viewer</option>
+    </select>
+
+    <select>
+      <option>All Status</option>
+      <option>Active</option>
+      <option>Inactive</option>
+    </select>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-container">
+    <table class="members-table">
+
+      <thead>
+        <tr>
+          <th>Member</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Joined</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>
+            <div class="member-cell">
+              <div class="avatar">A</div>
+              <div>
+                <div class="name">Aniruddh</div>
+                <div class="email">aniruddh@company.com</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span class="role admin">Admin</span>
+          </td>
+          <td>
+            <span class="status active">Active</span>
+          </td>
+          <td class="muted">12 Jan 2026</td>
+          <td class="actions">
+            <button class="btn-link">Manage</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="member-cell">
+              <div class="avatar secondary">R</div>
+              <div>
+                <div class="name">Rahul</div>
+                <div class="email">rahul@company.com</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span class="role developer">Developer</span>
+          </td>
+          <td>
+            <span class="status active">Active</span>
+          </td>
+          <td class="muted">15 Jan 2026</td>
+          <td class="actions">
+            <button class="btn-link">Manage</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="member-cell">
+              <div class="avatar muted-avatar">S</div>
+              <div>
+                <div class="name">Sneha</div>
+                <div class="email">sneha@company.com</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span class="role qa">QA</span>
+          </td>
+          <td>
+            <span class="status inactive">Inactive</span>
+          </td>
+          <td class="muted">20 Dec 2025</td>
+          <td class="actions">
+            <button class="btn-link">Manage</button>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+</section>

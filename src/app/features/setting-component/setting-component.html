@@ -1,0 +1,150 @@
+<section class="settings-page">
+
+  <!-- HEADER -->
+  <header class="settings-header">
+    <div>
+      <h1>Project Settings</h1>
+      <p class="subtitle">Manage configuration, access, and integrations</p>
+    </div>
+  </header>
+
+  <div class="settings-layout">
+
+    <!-- LEFT NAV -->
+    <aside class="settings-nav">
+      <ul>
+        <li class="active">General</li>
+        <li>Roles & Permissions</li>
+        <li>Workflow</li>
+        <li>Notifications</li>
+        <li>Integrations</li>
+        <li class="danger">Danger Zone</li>
+      </ul>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="settings-content">
+
+      <!-- GENERAL -->
+      <section class="settings-card">
+        <h2>General</h2>
+
+        <div class="form-group">
+          <label>Project Name</label>
+          <input type="text" value="Contract Management System" />
+        </div>
+
+        <div class="form-group">
+          <label>Project Key</label>
+          <input type="text" value="CMS" disabled />
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea rows="3">
+Manage contracts, vendors, and approvals
+          </textarea>
+        </div>
+
+        <button class="btn-primary">Save Changes</button>
+      </section>
+
+      <!-- ROLES -->
+      <section class="settings-card">
+        <h2>Roles & Permissions</h2>
+
+        <table class="roles-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Description</th>
+              <th>Permissions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Admin</td>
+              <td>Full project access</td>
+              <td>Create, Edit, Delete, Manage</td>
+            </tr>
+            <tr>
+              <td>Developer</td>
+              <td>Work on issues</td>
+              <td>Create, Update</td>
+            </tr>
+            <tr>
+              <td>Viewer</td>
+              <td>Read-only access</td>
+              <td>View</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- WORKFLOW -->
+      <section class="settings-card">
+        <h2>Workflow</h2>
+        <p class="muted">
+          Configure issue states and transitions
+        </p>
+
+        <div class="workflow-preview">
+          <span class="status todo">To Do</span>
+          →
+          <span class="status in-progress">In Progress</span>
+          →
+          <span class="status done">Done</span>
+        </div>
+      </section>
+
+      <!-- NOTIFICATIONS -->
+      <section class="settings-card">
+        <h2>Notifications</h2>
+
+        <label class="checkbox">
+          <input type="checkbox" checked />
+          Notify members on issue updates
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" checked />
+          Notify on sprint start/end
+        </label>
+      </section>
+
+      <!-- INTEGRATIONS -->
+      <section class="settings-card">
+        <h2>Integrations</h2>
+
+        <div class="integration-row">
+          <span>Slack</span>
+          <button class="btn-secondary">Connect</button>
+        </div>
+
+        <div class="integration-row">
+          <span>GitHub</span>
+          <button class="btn-secondary">Connect</button>
+        </div>
+      </section>
+
+      <!-- DANGER ZONE -->
+      <section class="settings-card danger-zone">
+        <h2>Danger Zone</h2>
+        <p class="muted">
+          These actions are irreversible
+        </p>
+
+        <button class="btn-danger">
+          Archive Project
+        </button>
+
+        <button class="btn-danger-outline">
+          Delete Project
+        </button>
+      </section>
+
+    </main>
+  </div>
+
+</section>

@@ -1,0 +1,105 @@
+/* HEADER SHELL */
+.app-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 56px;
+  padding: 0 20px;
+  background-color: #0f3c6d;
+  color: #ffffff;
+}
+
+/* LEFT */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.global-nav .nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #c7d2fe;
+  text-decoration: none;
+}
+
+.global-nav .nav-link.active,
+.global-nav .nav-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* CENTER */
+.header-center {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-switcher {
+  min-width: 200px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  color: #111827;
+}
+
+/* RIGHT */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: #374151;
+  color: #ffffff;
+}
+
+/* USER */
+.user-name {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

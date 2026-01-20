@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.project-shell {
+  display: flex;
+  height: 100%;
+}
+
+.project-content {
+  flex: 1;
+  overflow: auto;
+}
