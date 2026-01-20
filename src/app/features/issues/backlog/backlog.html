@@ -1,0 +1,103 @@
+<section class="backlog-page">
+
+  <!-- HEADER -->
+  <header class="backlog-header">
+    <div>
+      <h1>Backlog</h1>
+      <p class="subtitle">Plan and prioritize upcoming work</p>
+    </div>
+
+    <div class="backlog-actions">
+      <input type="text" placeholder="Search backlog…" />
+      <button class="btn-primary">+ Create Issue</button>
+    </div>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <select>
+      <option>Status: All</option>
+      <option>To Do</option>
+      <option>In Progress</option>
+      <option>Done</option>
+    </select>
+
+    <select>
+      <option>Type: All</option>
+      <option>Epic</option>
+      <option>Story</option>
+      <option>Task</option>
+      <option>Bug</option>
+    </select>
+
+    <select>
+      <option>Assignee: Anyone</option>
+    </select>
+  </div>
+
+  <!-- EPIC -->
+  <div class="epic-card">
+    <div class="epic-header">
+      <div class="epic-title">
+        <span class="badge epic">EPIC</span>
+        <strong>User Authentication</strong>
+      </div>
+      <div class="epic-meta">
+        <span>Progress: 60%</span>
+        <span class="status in-progress">IN PROGRESS</span>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <div class="story-row">
+      <div class="story-main">
+        <span class="badge story">STORY</span>
+        <strong>Login Feature</strong>
+        <span class="key">CMS-101</span>
+      </div>
+
+      <div class="story-meta">
+        <span class="priority high">High</span>
+        <span class="estimate">5 SP</span>
+        <span class="assignee">Aniruddh</span>
+        <span class="status todo">TODO</span>
+      </div>
+    </div>
+
+    <!-- TASK -->
+    <div class="task-row">
+      <span class="badge task">TASK</span>
+      Login UI
+      <span class="status todo">TODO</span>
+    </div>
+
+    <div class="task-row">
+      <span class="badge bug">BUG</span>
+      Login API validation
+      <span class="status in-progress">IN PROGRESS</span>
+    </div>
+
+    <!-- STORY -->
+    <div class="story-row">
+      <div class="story-main">
+        <span class="badge story">STORY</span>
+        <strong>Registration Feature</strong>
+        <span class="key">CMS-102</span>
+      </div>
+
+      <div class="story-meta">
+        <span class="priority medium">Medium</span>
+        <span class="estimate">3 SP</span>
+        <span class="assignee">Rahul</span>
+        <span class="status done">DONE</span>
+      </div>
+    </div>
+
+    <div class="task-row">
+      <span class="badge task">TASK</span>
+      Registration UI
+      <span class="status done">DONE</span>
+    </div>
+  </div>
+
+</section>
