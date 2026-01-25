@@ -35,7 +35,7 @@ export class ProjectCreate {
 
     this.projectService.createProject(this.project).subscribe({
       next: () => {
-        this.router.navigate(['/projects']);
+        this.router.navigate(['/app/projects']);
       },
       error: (err) => {
         console.error('Create project failed', err);

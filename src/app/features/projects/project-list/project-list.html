@@ -4,18 +4,23 @@
   <div class="page-header">
     <h2>Projects</h2>
 
-    <a routerLink="/createproject" class="btn btn-primary">
+    <a routerLink="/app/createproject" class="btn btn-primary">
       + Add Project
     </a>
   </div>
 
-  <!-- Projects Card -->
-  <div class="projects-card">
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    Loading projects...
+  </div>
 
-    <div
+  <!-- Project List -->
+  <div class="projects-card" *ngIf="!isLoading && projects.length">
+
+    <a
       class="project-row"
       *ngFor="let project of projects"
-      [routerLink]="['/projects', project.id, 'dashboard']">
+      [routerLink]="['/app/projects', project.id, 'dashboard']">
 
       <div class="project-left">
         <div class="project-name">{{ project.name }}</div>
@@ -26,8 +31,13 @@
         {{ project.status }}
       </div>
 
-    </div>
+    </a>
 
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && !projects.length" class="empty">
+    No projects found
   </div>
 
 </div>

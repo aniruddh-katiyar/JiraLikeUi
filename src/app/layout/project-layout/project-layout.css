@@ -1,14 +1,19 @@
-:host {
-  display: block;
-  height: 100%;
-}
-
-.project-shell {
+.project-layout {
   display: flex;
-  height: 100%;
+  width: 100%;
+  min-width: 0;
 }
 
-.project-content {
+.page-content {
   flex: 1;
-  overflow: auto;
+  min-width: 0;
+  padding: 16px;
+  overflow-y: scroll;
 }
+@media (max-width: 768px) {
+  .project-layout {
+    flex-direction: column;   /* HEADER already above */
+  }
+}
+
+

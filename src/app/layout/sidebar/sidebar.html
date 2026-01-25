@@ -1,45 +1,31 @@
+<div class="sidebar-root">
+  <!-- existing sidebar content -->
+
+
 <aside class="project-sidebar">
 
   <ul class="menu">
-
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      <a routerLink="dashboard">Dashboard</a>
+    <li>
+      <a routerLink="dashboard"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
+        Dashboard
+      </a>
     </li>
 
-    <li routerLinkActive="active">
-      <a routerLink="backlog">Backlog</a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a routerLink="issues">Board</a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a routerLink="sprint">Sprint</a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a routerLink="activity">Activity</a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a routerLink="chat">Chat</a>
-    </li>
-
+    <li><a routerLink="backlog" routerLinkActive="active">Backlog</a></li>
+    <li><a routerLink="issues" routerLinkActive="active">Board</a></li>
+    <li><a routerLink="sprint" routerLinkActive="active">Sprint</a></li>
+    <li><a routerLink="activity" routerLinkActive="active">Activity</a></li>
+    <li><a routerLink="chat" routerLinkActive="active">Chat</a></li>
   </ul>
 
   <div class="menu-divider"></div>
 
   <ul class="menu secondary">
-
-    <li routerLinkActive="active">
-      <a routerLink="members">Members</a>
-    </li>
-
-    <li routerLinkActive="active">
-      <a routerLink="setting">Setting</a>
-    </li>
-
+    <li><a routerLink="members" routerLinkActive="active">Members</a></li>
+    <li><a routerLink="setting" routerLinkActive="active">Setting</a></li>
   </ul>
 
 </aside>
+</div>
