@@ -1,0 +1,85 @@
+<section class="board-page">
+
+  <!-- HEADER -->
+  <header class="board-header">
+    <div>
+      <h1>Board</h1>
+      <p class="subtitle">Sprint execution view</p>
+    </div>
+
+    <div class="board-actions">
+      <button class="btn-secondary">Filters</button>
+      <button class="btn-primary">+ Create Issue</button>
+    </div>
+  </header>
+
+  <!-- BOARD -->
+  <div class="board">
+
+    <!-- COLUMN -->
+    <div class="board-column">
+      <div class="column-header todo">
+        <h3>To Do</h3>
+        <span class="count">1</span>
+        <span class="wip">WIP ∞</span>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="badge task">TASK</span>
+          Login UI
+        </div>
+
+        <div class="card-meta">
+          <span class="priority high">High</span>
+          <span class="assignee">Aniruddh</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN -->
+    <div class="board-column">
+      <div class="column-header in-progress">
+        <h3>In Progress</h3>
+        <span class="count">1</span>
+        <span class="wip limit">WIP 2</span>
+      </div>
+
+      <div class="card blocked">
+        <div class="card-title">
+          <span class="badge bug">BUG</span>
+          Login API
+        </div>
+
+        <div class="card-meta">
+          <span class="priority critical">Critical</span>
+          <span class="assignee">Rahul</span>
+        </div>
+
+        <div class="blocked-reason">
+          Blocked: Dependency pending
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN -->
+    <div class="board-column">
+      <div class="column-header done">
+        <h3>Done</h3>
+        <span class="count">1</span>
+      </div>
+
+      <div class="card done-card">
+        <div class="card-title">
+          <span class="badge task">TASK</span>
+          Registration UI
+        </div>
+
+        <div class="card-meta">
+          <span class="assignee">Sneha</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

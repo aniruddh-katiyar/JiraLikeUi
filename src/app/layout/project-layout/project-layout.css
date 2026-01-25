@@ -1,0 +1,19 @@
+.project-layout {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+}
+
+.page-content {
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+  overflow-y: scroll;
+}
+@media (max-width: 768px) {
+  .project-layout {
+    flex-direction: column;   /* HEADER already above */
+  }
+}
+
+

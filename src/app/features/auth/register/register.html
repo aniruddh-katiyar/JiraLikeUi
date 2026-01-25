@@ -1,0 +1,40 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Create Account</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="OnSubmit()">
+      <input
+        type="text"
+        placeholder="Full Name"
+        formControlName="name"
+      />
+
+      <input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        formControlName="confirmpassword"
+      />
+     <div *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.touched">
+  Passwords do not match
+  </div>  
+
+
+      <button type="submit">Create Account</button>
+    </form>
+    <p class="login-link">
+      Already have an account?
+      <a href="/login">Login</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<section class="sprint-page">
+
+  <!-- HEADER -->
+  <header class="sprint-header">
+    <div>
+      <h1>Sprint 12</h1>
+      <p class="subtitle">01 Jan – 14 Jan · <span class="active">Active</span></p>
+    </div>
+
+    <div class="sprint-actions">
+      <button class="btn-secondary">Sprint Settings</button>
+      <button class="btn-danger">End Sprint</button>
+    </div>
+  </header>
+
+  <!-- HEALTH METRICS -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <span>Committed</span>
+      <strong>20 SP</strong>
+    </div>
+    <div class="stat-card">
+      <span>Completed</span>
+      <strong class="done">14 SP</strong>
+    </div>
+    <div class="stat-card">
+      <span>Remaining</span>
+      <strong class="open">6 SP</strong>
+    </div>
+    <div class="stat-card warning">
+      <span>Blocked</span>
+      <strong>2</strong>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section class="progress-section">
+    <div class="progress-info">
+      <span>Progress</span>
+      <strong>70%</strong>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 70%"></div>
+    </div>
+    <p class="muted">2 days remaining</p>
+  </section>
+
+  <!-- EXECUTION BOARD -->
+  <section class="board">
+
+    <div class="board-column">
+      <h3>To Do</h3>
+      <div class="card">
+        <span class="badge bug">BUG</span>
+        Fix login issue
+      </div>
+    </div>
+
+    <div class="board-column">
+      <h3>In Progress</h3>
+      <div class="card">
+        <span class="badge task">TASK</span>
+        Kafka retry logic
+      </div>
+    </div>
+
+    <div class="board-column">
+      <h3>Done</h3>
+      <div class="card done-card">
+        <span class="badge story">STORY</span>
+        Dashboard UI
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RISKS -->
+  <section class="risk-section">
+    <h3>Risks & Blockers</h3>
+    <ul>
+      <li>🔴 Login bug blocked by OAuth dependency</li>
+      <li>🟠 Kafka retry logic needs infra approval</li>
+    </ul>
+  </section>
+
+  <!-- AI CREATE -->
+  <section class="ai-section">
+    <h3>Create Issue with AI</h3>
+    <textarea placeholder="Describe the problem or requirement..."></textarea>
+    <button class="btn-primary">Generate Issue</button>
+  </section>
+
+</section>

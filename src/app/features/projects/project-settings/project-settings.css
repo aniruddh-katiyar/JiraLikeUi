@@ -1,0 +1,10 @@
+.settings {
+  background: white;
+  padding: 16px;
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+}

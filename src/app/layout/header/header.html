@@ -1,0 +1,104 @@
+<header class="app-header" role="banner">
+
+  <!-- LEFT -->
+  <div class="header-left">
+    <span class="logo">JiraLike</span>
+
+    <!-- Global nav ONLY when logged in -->
+    <nav
+      *ngIf="isAuthenticated"
+      class="global-nav"
+      aria-label="Primary navigation">
+
+      <a
+        routerLink="projects"
+        routerLinkActive="active"
+        class="nav-link">
+        Projects
+      </a>
+    </nav>
+  </div>
+
+  <!-- CENTER (project context) -->
+  <div
+    class="header-center"
+    *ngIf="isAuthenticated">
+
+    <select
+      class="project-switcher"
+      [disabled]="isLoadingProjects || !projects.length"
+      [value]="selectedProjectId"
+      (change)="onProjectChange($any($event.target).value)">
+
+      <option *ngIf="isLoadingProjects" disabled>
+        Loading projects...
+      </option>
+
+      <option
+        *ngFor="let project of projects"
+        [value]="project.id">
+        {{ project.name }} ({{ project.key }})
+      </option>
+
+    </select>
+
+    <a
+      routerLink="createproject"
+      class="btn btn-primary">
+      + Project
+    </a>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="header-right">
+
+    <!-- BEFORE LOGIN -->
+    <ng-container *ngIf="!isAuthenticated">
+
+      <a
+        routerLink="/login"
+        class="btn btn-secondary">
+        Login
+      </a>
+
+      <a
+        routerLink="/register"
+        class="btn btn-primary">
+        Register
+      </a>
+
+    </ng-container>
+
+    <!-- AFTER LOGIN -->
+    <ng-container *ngIf="isAuthenticated">
+
+      <a
+        *ngIf="selectedProjectId"
+        [routerLink]="['/app/projects', selectedProjectId, 'issues']"
+        class="btn btn-primary">
+        + Create Issue
+      </a>
+
+      <a
+        *ngIf="selectedProjectId"
+        [routerLink]="['/app/projects', selectedProjectId, 'ai', 'summary']"
+        class="btn btn-secondary">
+        AI Summary
+      </a>
+
+      <span class="user-name">
+        Aniruddh
+      </span>
+
+      <button
+        type="button"
+        class="logout-btn"
+        (click)="logout()">
+        Logout
+      </button>
+
+    </ng-container>
+
+  </div>
+
+</header>

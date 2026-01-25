@@ -1,0 +1,108 @@
+/* Page container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f7fa;
+}
+
+/* Login card */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.login-card h2 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Input focus */
+.login-card input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Button */
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Button hover */
+.login-card button:hover {
+  background-color: #1e4fd6;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Button disabled (future-proof) */
+.login-card button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 24px;
+    margin: 0 16px;
+  }
+}
+/* Extra links */
+.extra-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.extra-links a {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #2563eb;
+  transition: color 0.2s;
+}
+
+.extra-links a:hover {
+  color: #1e4fd6;
+  text-decoration: underline;
+}
+
+/* Mobile tweak: stack links vertically */
+@media (max-width: 480px) {
+  .extra-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

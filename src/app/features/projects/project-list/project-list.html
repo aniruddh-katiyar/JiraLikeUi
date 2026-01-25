@@ -1,0 +1,43 @@
+<div class="projects-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h2>Projects</h2>
+
+    <a routerLink="/app/createproject" class="btn btn-primary">
+      + Add Project
+    </a>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    Loading projects...
+  </div>
+
+  <!-- Project List -->
+  <div class="projects-card" *ngIf="!isLoading && projects.length">
+
+    <a
+      class="project-row"
+      *ngFor="let project of projects"
+      [routerLink]="['/app/projects', project.id, 'dashboard']">
+
+      <div class="project-left">
+        <div class="project-name">{{ project.name }}</div>
+        <div class="project-key">{{ project.key }}</div>
+      </div>
+
+      <div class="project-status">
+        {{ project.status }}
+      </div>
+
+    </a>
+
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && !projects.length" class="empty">
+    No projects found
+  </div>
+
+</div>

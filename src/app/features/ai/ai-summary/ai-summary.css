@@ -1,0 +1,106 @@
+/* =========================
+   AI CARD (shared)
+========================= */
+.ai-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 720px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.ai-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.ai-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ai-badge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+  font-weight: 500;
+}
+
+/* =========================
+   CONTEXT
+========================= */
+.ai-context {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   SUMMARY BOX
+========================= */
+.ai-summary-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   INSIGHTS
+========================= */
+.ai-insights h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.ai-insights ul {
+  padding-left: 18px;
+}
+
+.ai-insights li {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.ai-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background: #f3f4f6;
+  color: #111827;
+}

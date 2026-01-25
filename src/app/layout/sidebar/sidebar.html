@@ -1,0 +1,31 @@
+<div class="sidebar-root">
+  <!-- existing sidebar content -->
+
+
+<aside class="project-sidebar">
+
+  <ul class="menu">
+    <li>
+      <a routerLink="dashboard"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
+        Dashboard
+      </a>
+    </li>
+
+    <li><a routerLink="backlog" routerLinkActive="active">Backlog</a></li>
+    <li><a routerLink="issues" routerLinkActive="active">Board</a></li>
+    <li><a routerLink="sprint" routerLinkActive="active">Sprint</a></li>
+    <li><a routerLink="activity" routerLinkActive="active">Activity</a></li>
+    <li><a routerLink="chat" routerLinkActive="active">Chat</a></li>
+  </ul>
+
+  <div class="menu-divider"></div>
+
+  <ul class="menu secondary">
+    <li><a routerLink="members" routerLinkActive="active">Members</a></li>
+    <li><a routerLink="setting" routerLinkActive="active">Setting</a></li>
+  </ul>
+
+</aside>
+</div>

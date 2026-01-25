@@ -1,0 +1,119 @@
+/* =========================
+   HEADER SHELL (DESKTOP)
+   ========================= */
+.app-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 56px;
+  padding: 0 20px;
+  background-color: #0f3c6d;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* LEFT / CENTER / RIGHT */
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; /* 🔑 allow shrink */
+}
+
+/* CENTER */
+.header-center {
+  justify-self: center;
+}
+
+/* LOGO */
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* PROJECT SWITCHER */
+.project-switcher {
+  min-width: 200px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* =========================
+   HEADER ACTIONS (DEPTH)
+   ========================= */
+.app-header a,
+.app-header .btn {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.1s ease;
+}
+
+/* Hover / Active */
+.app-header a:hover,
+.app-header .btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.app-header a:active,
+.app-header .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* PRIMARY ACTION (optional but recommended) */
+.app-header .btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.45);
+}
+
+.app-header .btn-primary:hover {
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.55);
+}
+
+/* =========================
+   MOBILE (STACKED)
+   ========================= */
+@media (max-width: 768px) {
+
+  /* GRID → FLEX COLUMN */
+  .app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* SWITCHER FULL WIDTH */
+  .project-switcher {
+    min-width: 0;
+    width: 100%;
+  }
+}

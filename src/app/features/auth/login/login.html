@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="login-card">
+    <section class="auth-container">
+
+      <h2>Login</h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input
+          type="email"
+          placeholder="Email"
+          formControlName="email" />
+
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password" />
+
+        <button type="submit">
+          Login
+        </button>
+      </form>
+
+      <!-- Extra links -->
+      <div class="extra-links">
+        <a routerLink="/register">Create an account</a>
+        <a routerLink=''>Back to Home</a>
+      </div>
+
+    </section>
+  </div>
+</div>
