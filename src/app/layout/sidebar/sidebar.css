@@ -1,11 +1,13 @@
 /* Sidebar shell */
-.project-sidebar {
+.sidebar-root {
   width: 220px;
   background-color: #0b2f55;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   padding: 12px 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* Menu reset */
@@ -20,7 +22,7 @@
   margin: 2px 0;
 }
 
-/* Anchor – THIS removes underline */
+/* Anchor */
 .menu li a {
   display: flex;
   align-items: center;
@@ -28,7 +30,7 @@
   font-size: 14px;
   font-weight: 500;
   color: #c7d2fe;
-  text-decoration: none;          /* 🔥 underline removed */
+  text-decoration: none;
   border-radius: 6px;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -39,7 +41,7 @@
   color: #ffffff;
 }
 
-/* Active route */
+/* Active */
 .menu li.active a {
   background-color: rgba(255, 255, 255, 0.18);
   color: #ffffff;
@@ -61,12 +63,29 @@
   background-color: rgba(255, 255, 255, 0.06);
   color: #ffffff;
 }
-:host {
-  display: block;
-  width: 220px;
-  height: 100%;
-}
-.project-shell { border: 3px solid red; }
-.app-sidebar { border: 3px solid blue; }
-.project-content { border: 3px solid green; }
+@media (max-width: 768px) {
 
+  .sidebar-root {
+    width: 100%;
+    flex-direction: row;      /* 🔑 horizontal */
+    overflow-x: auto;         /* allow scroll if many items */
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .menu li {
+    margin: 0;
+    white-space: nowrap;      /* keep items in one line */
+  }
+
+  .menu li a {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

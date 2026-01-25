@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 
-import { MainLayoutComponent } from './layout/main-layout/main-layout';
+import { MainLayout } from './layout/main-layout/main-layout';
 
 
 import { Login } from './features/auth/login/login';
@@ -21,47 +21,45 @@ import { AiIssueCreatorComponent } from './features/ai/ai-issue-creator/ai-issue
 import { AiSummaryComponent } from './features/ai/ai-summary/ai-summary';
 import { MemberComponent } from './features/member-component/member-component';
 import { SettingComponent } from './features/setting-component/setting-component';
+import { Home } from './core/home/home';
+import { ProjectLayout } from './layout/project-layout/project-layout';
 
 export const routes: Routes = [
 
-
+  /* Public */
+  { path: '', component: Home },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
 
+  /* App shell */
   {
-    path: '',
-    component: MainLayoutComponent,
+    path: 'app',
+    component: MainLayout,
     children: [
+
       { path: '', redirectTo: 'projects', pathMatch: 'full' },
+
       { path: 'projects', component: ProjectList },
-      { path: 'createproject', component: ProjectCreate }
+      { path: 'createproject', component: ProjectCreate },
+
+      /* Project scoped */
+      {
+        path: 'projects/:projectId',
+        component: ProjectLayout,   
+        children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: Dashboard },
+          { path: 'backlog', component: Backlog },
+          { path: 'issues', component: Board },
+          { path: 'sprint', component: SprintPageComponent },
+          { path: 'activity', component: Activity },
+          { path: 'chat', component: Chat },
+          { path: 'members', component: MemberComponent },
+          { path: 'setting', component: SettingComponent },
+          { path: 'ai/create-issue', component: AiIssueCreatorComponent },
+          { path: 'ai/summary', component: AiSummaryComponent }
+        ]
+      }
     ]
-  },
-
-  {
-    path: 'projects/:projectId',
-    component: MainLayoutComponent,
-    children: [
-
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-
-      { path: 'dashboard', component: Dashboard },
-      { path: 'backlog', component: Backlog },
-      { path: 'issues', component: Board },
-      { path: 'sprint', component: SprintPageComponent },
-      { path: 'activity', component: Activity },
-      { path: 'chat', component: Chat },
-      { path: 'members', component: MemberComponent },
-      { path: 'setting', component: SettingComponent },
-
-      /* AI */
-      { path: 'ai/create-issue', component: AiIssueCreatorComponent },
-      { path: 'ai/summary', component: AiSummaryComponent }
-    ]
-  },
-
-  /* =========================
-     FALLBACK
-  ========================= */
-  { path: '**', redirectTo: 'projects' }
+  }
 ];

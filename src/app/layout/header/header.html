@@ -1,14 +1,17 @@
 <header class="app-header" role="banner">
 
-  <!-- LEFT: Brand + Global Navigation -->
+  <!-- LEFT -->
   <div class="header-left">
-    <span class="logo" aria-label="Application name">
-      JiraLike
-    </span>
+    <span class="logo">JiraLike</span>
 
-    <nav class="global-nav" aria-label="Primary navigation">
+    <!-- Global nav ONLY when logged in -->
+    <nav
+      *ngIf="isAuthenticated"
+      class="global-nav"
+      aria-label="Primary navigation">
+
       <a
-        routerLink="/projects"
+        routerLink="projects"
         routerLinkActive="active"
         class="nav-link">
         Projects
@@ -16,18 +19,18 @@
     </nav>
   </div>
 
-  <!-- CENTER: Project Context -->
-  <div class="header-center">
+  <!-- CENTER (project context) -->
+  <div
+    class="header-center"
+    *ngIf="isAuthenticated">
 
-    <!-- Project Switcher -->
     <select
       class="project-switcher"
-      [disabled]="isLoading || !projects.length"
+      [disabled]="isLoadingProjects || !projects.length"
       [value]="selectedProjectId"
-      (change)="onProjectChange($any($event.target).value)"
-      aria-label="Select project">
+      (change)="onProjectChange($any($event.target).value)">
 
-      <option *ngIf="isLoading" disabled>
+      <option *ngIf="isLoadingProjects" disabled>
         Loading projects...
       </option>
 
@@ -39,45 +42,62 @@
 
     </select>
 
-    <!-- Create Project -->
     <a
-      routerLink="/createproject"
+      routerLink="createproject"
       class="btn btn-primary">
       + Project
     </a>
-
   </div>
 
-  <!-- RIGHT: Actions + User -->
+  <!-- RIGHT -->
   <div class="header-right">
 
-    <!-- Create Issue (project scoped) -->
-    <a
-      *ngIf="selectedProjectId"
-      [routerLink]="['/projects', selectedProjectId, 'issues', 'create']"
-      class="btn btn-primary">
-      + Create Issue
-    </a>
+    <!-- BEFORE LOGIN -->
+    <ng-container *ngIf="!isAuthenticated">
 
-    <!-- AI Summary (project scoped) -->
-    <a
-      *ngIf="selectedProjectId"
-      [routerLink]="['/projects', selectedProjectId, 'ai', 'summary']"
-      class="btn btn-secondary">
-      AI Summary
-    </a>
+      <a
+        routerLink="/login"
+        class="btn btn-secondary">
+        Login
+      </a>
 
-    <!-- User -->
-    <span class="user-name">
-      Aniruddh
-    </span>
+      <a
+        routerLink="/register"
+        class="btn btn-primary">
+        Register
+      </a>
 
-    <!-- Logout -->
-    <button
-      type="button"
-      class="logout-btn">
-      Logout
-    </button>
+    </ng-container>
+
+    <!-- AFTER LOGIN -->
+    <ng-container *ngIf="isAuthenticated">
+
+      <a
+        *ngIf="selectedProjectId"
+        [routerLink]="['/app/projects', selectedProjectId, 'issues']"
+        class="btn btn-primary">
+        + Create Issue
+      </a>
+
+      <a
+        *ngIf="selectedProjectId"
+        [routerLink]="['/app/projects', selectedProjectId, 'ai', 'summary']"
+        class="btn btn-secondary">
+        AI Summary
+      </a>
+
+      <span class="user-name">
+        Aniruddh
+      </span>
+
+      <button
+        type="button"
+        class="logout-btn"
+        (click)="logout()">
+        Logout
+      </button>
+
+    </ng-container>
 
   </div>
 

@@ -1,0 +1,210 @@
+/* =====================================================
+   GLOBAL TOKENS (SAFE TO MOVE TO :root LATER)
+===================================================== */
+
+:host {
+  --bg-page-start: #f8fafc;
+  --bg-page-end: #f1f5f9;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --brand-primary: #2563eb;
+  --brand-primary-hover: #1e4fd6;
+
+  --surface-white: #ffffff;
+  --border-subtle: #e5e7eb;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* =====================================================
+   PAGE CONTAINER
+===================================================== */
+
+.home-container {
+  min-height: 100vh;
+  padding: 96px 24px 48px;
+
+  background: linear-gradient(
+    180deg,
+    var(--bg-page-start) 0%,
+    var(--bg-page-end) 100%
+  );
+
+  color: var(--text-primary);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+  max-width: 900px;
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+/* =====================================================
+   CALL TO ACTION
+===================================================== */
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  min-width: 140px;
+  padding: 12px 24px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-primary-hover);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #e5e7eb;
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: #d1d5db;
+}
+
+/* =====================================================
+   FEATURES SECTION
+===================================================== */
+
+.features {
+  width: 100%;
+  max-width: 1100px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+
+  margin-bottom: 80px;
+}
+
+.feature-card {
+  background-color: var(--surface-white);
+  padding: 28px;
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--border-subtle);
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.feature-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.home-footer {
+  margin-top: auto;
+  padding-top: 24px;
+
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+===================================================== */
+
+@media (max-width: 768px) {
+  .home-container {
+    padding-top: 72px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
