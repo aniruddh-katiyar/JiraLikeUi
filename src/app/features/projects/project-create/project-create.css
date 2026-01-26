@@ -67,3 +67,22 @@ small {
   background-color: #e5e7eb;
   color: #111827;
 }
+.project-description {
+  resize: vertical;
+  min-height: 140px;
+  max-height: 320px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.ai-action-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.btn-ai {
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
