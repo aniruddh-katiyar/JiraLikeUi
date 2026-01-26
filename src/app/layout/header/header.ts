@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { ProjectResponseModel } from '../../models/project/project-response.model';
 import { ProjectService } from '../../core/services/project-service';
+import { AuthService } from '../../core/services/auth-service';
 
 @Component({
   selector: 'app-header',
@@ -15,8 +16,8 @@ import { ProjectService } from '../../core/services/project-service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  isAuthenticated = false; // later comes from AuthService
-  userName = 'Aniruddh';   // later comes from token / profile API
+  isAuthenticated = false;
+  userName = 'Aniruddh'; // later decode from token or profile API
 
   projects: ProjectResponseModel[] = [];
   selectedProjectId: string | null = null;
@@ -26,20 +27,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private projectService: ProjectService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
-
   ngOnInit(): void {
-    /**
-     * TEMP: simulate authenticated user
-     * Replace this later with AuthService.isAuthenticated$
-     */
-    this.isAuthenticated = this.checkAuth();
+    // Subscribe to auth state
+    const authSub = this.authService.isLoggedIn$.subscribe(isLoggedIn => {
+      this.isAuthenticated = isLoggedIn;
 
-    if (this.isAuthenticated) {
-      this.loadProjects();
-    }
+      if (isLoggedIn) {
+        this.loadProjects();
+      } else {
+        this.projects = [];
+        this.selectedProjectId = null;
+      }
+    });
+
+    this.subscriptions.add(authSub);
   }
 
   ngOnDestroy(): void {
@@ -47,28 +52,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
-    // later: clear token + notify AuthService
-    this.isAuthenticated = false;
-    this.projects = [];
-    this.selectedProjectId = null;
-
-    this.router.navigate(['/login']);
+    this.authService.logout();
+    this.router.navigateByUrl('/login', { replaceUrl: true });
   }
-
-  private checkAuth(): boolean {
-    // TEMP logic
-    // later: return authService.isAuthenticated()
-    return true;
-  }
-
- 
 
   private loadProjects(): void {
     this.isLoadingProjects = true;
 
     const sub = this.projectService.getAllProjects().subscribe({
       next: (projects) => {
-        // show only active projects in header
         this.projects = projects.filter(p => p.status === 'Active');
         this.isLoadingProjects = false;
 
@@ -77,8 +69,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.navigateToProject(this.selectedProjectId);
         }
       },
-      error: (err) => {
-        console.error('Failed to load projects', err);
+      error: () => {
         this.isLoadingProjects = false;
       }
     });
@@ -87,12 +78,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onProjectChange(projectId: string): void {
-    if (!projectId || projectId === this.selectedProjectId) {
-      return;
+    if (projectId && projectId !== this.selectedProjectId) {
+      this.selectedProjectId = projectId;
+      this.navigateToProject(projectId);
     }
-
-    this.selectedProjectId = projectId;
-    this.navigateToProject(projectId);
   }
 
   private navigateToProject(projectId: string): void {

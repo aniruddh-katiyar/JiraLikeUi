@@ -4,7 +4,7 @@ import { Routes } from '@angular/router';
 import { MainLayout } from './layout/main-layout/main-layout';
 
 
-import { Login } from './features/auth/login/login';
+
 import { Register } from './features/auth/register/register';
 
 import { ProjectList } from './features/projects/project-list/project-list';
@@ -23,6 +23,8 @@ import { MemberComponent } from './features/member-component/member-component';
 import { SettingComponent } from './features/setting-component/setting-component';
 import { Home } from './core/home/home';
 import { ProjectLayout } from './layout/project-layout/project-layout';
+import { Login } from './features/auth/login/login';
+import { AuthGuard } from './core/gaurds/AuthGaurd';
 
 export const routes: Routes = [
 
@@ -34,6 +36,7 @@ export const routes: Routes = [
   /* App shell */
   {
     path: 'app',
+     canActivate: [AuthGuard],
     component: MainLayout,
     children: [
 
