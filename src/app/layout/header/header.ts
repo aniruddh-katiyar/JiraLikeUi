@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    if (this.userId) {
       this.loadUserName(this.userId);
 }
+
     this.subscriptions.add(authSub);
   }
 
