@@ -1,88 +1,30 @@
-<section class="activity-page">
+<div class="activity-container">
 
-  <!-- HEADER -->
-  <header class="activity-header">
-    <div>
-      <h1>Activity</h1>
-      <p class="subtitle">Project-wide activity & audit trail</p>
-    </div>
+  <h2 class="activity-title">Activity</h2>
 
-    <div class="activity-filters">
-      <select>
-        <option>All Events</option>
-        <option>Issue Updates</option>
-        <option>Sprint Changes</option>
-        <option>Project Settings</option>
-      </select>
+  <ng-container *ngIf="activities.length; else emptyState">
 
-      <select>
-        <option>All Users</option>
-        <option>Aniruddh</option>
-        <option>Rahul</option>
-        <option>Sneha</option>
-      </select>
-
-      <select>
-        <option>Last 7 Days</option>
-        <option>Last 24 Hours</option>
-        <option>Last 30 Days</option>
-      </select>
-    </div>
-  </header>
-
-  <!-- TIMELINE -->
-  <section class="timeline">
-
-    <!-- TODAY -->
-    <div class="timeline-group">
-      <h3>Today</h3>
-
-      <div class="activity-card">
-        <span class="dot issue"></span>
-
-        <div class="activity-content">
-          <p>
-            <strong>Aniruddh</strong> created
-            <a href="#">WR-101</a>
-            <span class="badge bug">BUG</span>
-          </p>
-          <p class="muted">Title: Login failure on Safari</p>
-          <span class="time">10 minutes ago</span>
-        </div>
+    <div
+      *ngFor="let a of activities; trackBy: trackByTime"
+      class="activity-item"
+    >
+      <div class="activity-header-line">
+        <span class="user">{{ a.performedBy }}</span>
+        <span class="action">{{ a.action }}</span>
+        <span class="entity">({{ a.entityType }})</span>
       </div>
 
-      <div class="activity-card">
-        <span class="dot status"></span>
-
-        <div class="activity-content">
-          <p>
-            <strong>Rahul</strong> moved
-            <a href="#">WR-102</a>
-            to <strong>In Progress</strong>
-          </p>
-          <p class="muted">From To Do → In Progress</p>
-          <span class="time">1 hour ago</span>
-        </div>
+      <div class="activity-time">
+        {{ a.createdAt | date:'medium' }}
       </div>
     </div>
 
-    <!-- YESTERDAY -->
-    <div class="timeline-group">
-      <h3>Yesterday</h3>
+  </ng-container>
 
-      <div class="activity-card">
-        <span class="dot settings"></span>
-
-        <div class="activity-content">
-          <p>
-            <strong>Aniruddh</strong> updated project settings
-          </p>
-          <p class="muted">Workflow configuration changed</p>
-          <span class="time">Yesterday · 4:20 PM</span>
-        </div>
-      </div>
+  <ng-template #emptyState>
+    <div class="activity-empty">
+      No activity yet.
     </div>
+  </ng-template>
 
-  </section>
-
-</section>
+</div>

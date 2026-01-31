@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { UserRegistartionInterface } from '../../models/user-registration.model';
 import { UserLoginInterface } from '../../models/user-login.model';
 import { AuthResponse } from '../../models/auth-response.model';
+import { RegistrationResponse } from '../../models/registration-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,9 @@ export class AuthService {
     this.isLoggedInSubject.next(!!token);
   }
 
-  registerUser(user: UserRegistartionInterface): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/register`, user);
+  registerUser(user: UserRegistartionInterface): Observable<RegistrationResponse> 
+  {
+  return this.http.post<RegistrationResponse>(`${this.baseUrl}/auth/register`,user);
   }
 
   userlogin(userLogin: UserLoginInterface): Observable<AuthResponse> {
@@ -32,7 +34,7 @@ export class AuthService {
         tap((res) => {
           localStorage.setItem('access_token', res.accessToken);
           localStorage.setItem('refresh_token', res.refreshToken);
-
+          localStorage.setItem('userId', res.userId);
           // ✅ update reactive state
           this.isLoggedInSubject.next(true);
         })
@@ -42,6 +44,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+     localStorage.removeItem('userId');
 
     // ✅ update reactive state
     this.isLoggedInSubject.next(false);

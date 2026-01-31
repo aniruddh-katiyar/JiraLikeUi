@@ -1,0 +1,98 @@
+<form class="issue-form" [formGroup]="issueForm" (ngSubmit)="submit()">
+
+  <h2>Create Issue</h2>
+
+  <!-- Title -->
+  <div class="form-group">
+    <label>Title</label>
+    <input
+      type="text"
+      formControlName="title"
+      placeholder="Short summary of the issue"
+    />
+  </div>
+
+  <!-- Description -->
+  <div class="form-group">
+    <label>Description</label>
+    <textarea
+      rows="4"
+      formControlName="description"
+      placeholder="Describe the issue in detail"
+    ></textarea>
+  </div>
+
+  <!-- Row -->
+  <div class="form-row">
+    <div class="form-group">
+      <label>Issue Type</label>
+      <select formControlName="type">
+        <option [value]="0">Bug</option>
+        <option [value]="1">Task</option>
+        <option [value]="2">Story</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Priority</label>
+      <select formControlName="priority">
+        <option [value]="0">Low</option>
+        <option [value]="1">Medium</option>
+        <option [value]="2">High</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Mocked / Read-only Enterprise Fields -->
+  <div class="form-row">
+
+    <div class="form-group">
+      <label>Assignee</label>
+      <input
+        type="text"
+        value="Unassigned"
+        disabled
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <input
+        type="text"
+        value="To Do"
+        disabled
+      />
+    </div>
+
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group">
+      <label>Story Points</label>
+      <input
+        type="text"
+        value="—"
+        disabled
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Due Date</label>
+      <input
+        type="text"
+        value="Not set"
+        disabled
+      />
+    </div>
+
+  </div>
+
+  <!-- Action -->
+  <div class="form-actions">
+    <button type="submit" [disabled]="isSubmitting">
+      Create Issue
+    </button>
+  </div>
+
+</form>

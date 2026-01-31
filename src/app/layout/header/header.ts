@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { ProjectResponseModel } from '../../models/project/project-response.model';
 import { ProjectService } from '../../core/services/project-service';
 import { AuthService } from '../../core/services/auth-service';
+import { UserService } from '../../core/services/user-service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -22,20 +24,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   projects: ProjectResponseModel[] = [];
   selectedProjectId: string | null = null;
   isLoadingProjects = false;
-
+ userId: string | null = null;
+ 
   private subscriptions = new Subscription();
 
   constructor(
     private projectService: ProjectService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     // Subscribe to auth state
     const authSub = this.authService.isLoggedIn$.subscribe(isLoggedIn => {
       this.isAuthenticated = isLoggedIn;
-
+     this.userId = localStorage.getItem('userId');
       if (isLoggedIn) {
         this.loadProjects();
       } else {
@@ -43,7 +47,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.selectedProjectId = null;
       }
     });
-
+   if (this.userId) {
+      this.loadUserName(this.userId);
+}
     this.subscriptions.add(authSub);
   }
 
@@ -86,5 +92,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private navigateToProject(projectId: string): void {
     this.router.navigate(['app/projects', projectId, 'dashboard']);
+  }
+
+   private loadUserName(userId: string): void {
+    this.userService.getUserById(userId).subscribe({
+      next: (user: User) => {
+        this.userName = user.name;
+      },
+      error: (err) => {
+        console.error('Failed to load user', err);
+        this.userName = '';
+      }
+    });
   }
 }

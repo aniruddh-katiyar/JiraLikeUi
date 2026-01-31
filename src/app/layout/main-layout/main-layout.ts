@@ -7,6 +7,7 @@ import { FooterComponent } from '../footer/footer';
 
 import { filter } from 'rxjs/internal/operators/filter';
 import { CommonModule } from '@angular/common';
+import { ActivitySignalRService } from '../../core/services/activity-signalr.service';
 
 
 @Component({
@@ -29,13 +30,14 @@ export class MainLayout implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+     private activitySignalR: ActivitySignalRService
   ) {}
 
   ngOnInit(): void {
     this.resolveProjectId();
-
-    // CRITICAL: layout is reused → listen to navigation
+    this.activitySignalR.startConnection();
+ // CRITICAL: layout is reused → listen to navigation
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe(() => {
@@ -61,6 +63,9 @@ export class MainLayout implements OnInit {
   }
 
   console.log('Layout projectId:', this.projectId);
+  if (this.projectId) {
+        this.activitySignalR.joinProject(this.projectId);
+      }
 }
 
 }

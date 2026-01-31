@@ -74,7 +74,7 @@
 
       <a
         *ngIf="selectedProjectId"
-        [routerLink]="['/app/projects', selectedProjectId, 'issues']"
+        [routerLink]="['/app/projects', selectedProjectId, 'issues', 'create']"
         class="btn btn-primary">
         + Create Issue
       </a>
@@ -86,8 +86,8 @@
         AI Summary
       </a>
 
-      <span class="user-name">
-        Aniruddh
+      <span class="user-name" >
+       Welcome, {{ userName }}
       </span>
 
       <button

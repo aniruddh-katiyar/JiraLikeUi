@@ -14,7 +14,7 @@ import { ProjectCreate } from './features/projects/project-create/project-create
 import { Dashboard } from './features/dashboard/dashboard';
 import { Board } from './features/issues/board/board';
 import { Backlog } from './features/issues/backlog/backlog';
-import { Activity } from './features/activity/activity';
+
 import { Chat } from './features/chat/chat';
 import { SprintPageComponent } from './features/sprint/sprint-page/sprint-page';
 import { AiIssueCreatorComponent } from './features/ai/ai-issue-creator/ai-issue-creator';
@@ -25,6 +25,8 @@ import { Home } from './core/home/home';
 import { ProjectLayout } from './layout/project-layout/project-layout';
 import { Login } from './features/auth/login/login';
 import { AuthGuard } from './core/gaurds/AuthGaurd';
+import { CreateIssueComponent } from './features/issues/create-issue/create-issue';
+import { ActivityComponent } from './features/activity/activity';
 
 export const routes: Routes = [
 
@@ -54,8 +56,9 @@ export const routes: Routes = [
           { path: 'dashboard', component: Dashboard },
           { path: 'backlog', component: Backlog },
           { path: 'issues', component: Board },
+          { path: 'issues/create', component: CreateIssueComponent },
           { path: 'sprint', component: SprintPageComponent },
-          { path: 'activity', component: Activity },
+          { path: 'activity', component: ActivityComponent },
           { path: 'chat', component: Chat },
           { path: 'members', component: MemberComponent },
           { path: 'setting', component: SettingComponent },

@@ -5,11 +5,12 @@ import { Router, RouterLink } from '@angular/router';
 import { CreateProjectRequest } from '../../../models/project/create-project-request';
 import { ProjectService } from '../../../core/services/project-service';
 import { BotService } from '../../../core/services/bot-service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-project-create',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule,MatSnackBarModule, FormsModule, RouterLink],
   templateUrl: './project-create.html',
   styleUrls: ['./project-create.css'],
 })
@@ -27,7 +28,8 @@ export class ProjectCreate {
   constructor(
     private router: Router,
     private projectService: ProjectService,
-    private botService: BotService
+    private botService: BotService,
+    private snackBar : MatSnackBar
   ) {}
 
   onSubmit(): void {
@@ -44,6 +46,15 @@ export class ProjectCreate {
         this.isSubmitting = false;
       }
     });
+
+    this.snackBar.open('Project Created SuccessFully', 'Close',
+      {
+        duration: 3000,
+        horizontalPosition :'center',
+        verticalPosition: 'top',
+        panelClass: ['success-snackbar']
+      }
+    );
   }
 
   autoGenerateKey(): void {

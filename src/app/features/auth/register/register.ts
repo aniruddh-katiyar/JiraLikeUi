@@ -21,7 +21,7 @@ export class Register {
   ) {
     this.createForm(); // ✅ Initialize form
   }
-
+isSubmitting = false;
   private createForm(): void {
     this.registerForm = this.formBuilder.group(
       {
@@ -35,17 +35,23 @@ export class Register {
   }
 
   OnSubmit(): void {
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid || this.isSubmitting) {
       this.registerForm.markAllAsTouched();
       return;
     }
+ this.isSubmitting = true;
 
     // ✅ Exclude confirmPassword before sending
     const { confirmpassword, ...registerPayload } = this.registerForm.value;
 
     this.authService.registerUser(registerPayload).subscribe({
-      next: () => this.router.navigate(['/login']),
-      error: () => alert("Registration failed.")
+      next: (res) =>{ this.isSubmitting = false;
+                    this.router.navigate(['/login'])
+                  },
+      error: () =>{
+                   this.isSubmitting = false;
+                   alert("Registration failed.")
+                   }
     });
   }
 }
