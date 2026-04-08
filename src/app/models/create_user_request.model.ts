@@ -8,5 +8,5 @@ export interface CreateIssueRequest {
   assigneeId?: string | null;   // ✅ FIXED
   status?: number;
   storypoints?: number;
-  dueDate?: string | null;          // enum value
+  dueDate?: string | null;
 }

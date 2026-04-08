@@ -1,30 +1,34 @@
 <div class="activity-container">
-
   <h2 class="activity-title">Activity</h2>
 
   <ng-container *ngIf="activities.length; else emptyState">
-
     <div
-      *ngFor="let a of activities; trackBy: trackByTime"
-      class="activity-item"
+      *ngFor="let a of activities; let i = index"
+      class="activity-row"
+      [ngClass]="'row-' + a.action"
     >
-      <div class="activity-header-line">
-        <span class="user">{{ a.performedBy }}</span>
-        <span class="action">{{ a.action }}</span>
-        <span class="entity">({{ a.entityType }})</span>
-      </div>
+      <!-- latest dot -->
+      <span *ngIf="i === 0" class="latest-dot"></span>
 
-      <div class="activity-time">
-        {{ a.createdAt | date:'medium' }}
+      <div class="activity-text">
+        <div class="activity-sentence">
+          <span class="entity-type">Epic</span>
+          <span class="entity-title">“Test”</span>
+          <span class="action" [ngClass]="'action-' + a.action">
+            is {{ a.action }}
+          </span>
+          <span class="by">by</span>
+          <span class="user">{{ a.performByName }}</span>
+        </div>
+
+        <div class="activity-time">
+          {{ a.createdAt | date:'medium' }}
+        </div>
       </div>
     </div>
-
   </ng-container>
 
   <ng-template #emptyState>
-    <div class="activity-empty">
-      No activity yet.
-    </div>
+    <div class="activity-empty">No activity yet.</div>
   </ng-template>
-
 </div>

@@ -1,9 +1,10 @@
+import { ProjectStatus } from "../enum/projectstatusEnum";
 
 export interface ProjectResponseModel {
   id: string;      
   name: string;
   key: string;
-  status: 'Active' | 'Inactive';
+  status: ProjectStatus;
   createdBy : string;
   createdDate : Date,
 createdbyUserName : string

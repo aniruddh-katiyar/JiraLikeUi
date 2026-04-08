@@ -1,0 +1,177 @@
+/* ================= PAGE ================= */
+.issue-page {
+  padding: 24px 32px;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.issue-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.issue-key {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b778c;
+}
+
+.issue-title-input {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #172b4d;
+}
+
+.issue-title-input:focus {
+  border-bottom: 2px solid #4c9aff;
+}
+
+/* ================= BODY LAYOUT ================= */
+.issue-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* ================= MAIN ================= */
+.issue-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ================= BLOCK ================= */
+.block {
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.block h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #172b4d;
+  margin-bottom: 12px;
+}
+
+/* ================= INPUTS ================= */
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #dfe1e6;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fafbfc;
+  transition: all 0.2s ease;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4c9aff;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(76, 154, 255, 0.2);
+}
+
+/* ================= COMMENTS ================= */
+.comment-card {
+  background: #f4f5f7;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.comment-card strong {
+  font-size: 13px;
+  color: #172b4d;
+}
+
+.comment-card p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #42526e;
+}
+
+.comment-box {
+  margin-top: 10px;
+  min-height: 70px;
+}
+
+/* ================= BUTTONS ================= */
+.primary-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: #0747a6;
+}
+
+.secondary-btn {
+  padding: 6px 12px;
+  background: #dfe1e6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* ================= SIDEBAR ================= */
+.issue-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-item {
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-item label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b778c;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sidebar-item input,
+.sidebar-item select {
+  width: 100%;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .issue-body {
+    grid-template-columns: 1fr;
+  }
+
+  .issue-sidebar {
+    position: static;
+  }
+}

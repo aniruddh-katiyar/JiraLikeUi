@@ -5,5 +5,6 @@ export interface Activity {
   oldValue: string | null;
   newValue: string | null;
   performedBy: string;
+  performByName : string;
   createdAt: string; // ISO string
 }

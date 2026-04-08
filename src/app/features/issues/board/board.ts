@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PROJECT } from '../../../../mock-data/project.mock';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './board.html',
   styleUrl: './board.css'
 })

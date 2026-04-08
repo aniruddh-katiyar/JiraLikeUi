@@ -1,5 +1,5 @@
 export enum IssueStatus{
     Open,
-    Progress,
+    InProgress,
     completed
 }

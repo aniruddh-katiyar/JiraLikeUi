@@ -27,6 +27,8 @@ import { Login } from './features/auth/login/login';
 import { AuthGuard } from './core/gaurds/AuthGaurd';
 import { CreateIssueComponent } from './features/issues/create-issue/create-issue';
 import { ActivityComponent } from './features/activity/activity';
+import { IssueDetail } from './features/issues/issue-detail/issue-detail';
+import { AddMemberComponent } from './features/member-component/add-member-component/add-member-component';
 
 export const routes: Routes = [
 
@@ -57,10 +59,12 @@ export const routes: Routes = [
           { path: 'backlog', component: Backlog },
           { path: 'issues', component: Board },
           { path: 'issues/create', component: CreateIssueComponent },
+          { path: 'issuedetails', component: IssueDetail },
           { path: 'sprint', component: SprintPageComponent },
           { path: 'activity', component: ActivityComponent },
           { path: 'chat', component: Chat },
           { path: 'members', component: MemberComponent },
+          { path: 'add-member', component: AddMemberComponent }, 
           { path: 'setting', component: SettingComponent },
           { path: 'ai/create-issue', component: AiIssueCreatorComponent },
           { path: 'ai/summary', component: AiSummaryComponent }

@@ -5,90 +5,83 @@
   <!-- Title -->
   <div class="form-group">
     <label>Title</label>
-    <input
-      type="text"
-      formControlName="title"
-      placeholder="Short summary of the issue"
-    />
+    <input type="text" formControlName="title" />
   </div>
 
   <!-- Description -->
   <div class="form-group">
     <label>Description</label>
-    <textarea
-      rows="4"
-      formControlName="description"
-      placeholder="Describe the issue in detail"
-    ></textarea>
+    <textarea formControlName="description"></textarea>
   </div>
 
-  <!-- Row -->
+  <!-- Type & Priority -->
   <div class="form-row">
+
     <div class="form-group">
-      <label>Issue Type</label>
+      <label>Type</label>
       <select formControlName="type">
-        <option [value]="0">Bug</option>
-        <option [value]="1">Task</option>
-        <option [value]="2">Story</option>
+        <option [ngValue]="0">Epic</option>
+        <option [ngValue]="1">Story</option>
+        <option [ngValue]="2">Task</option>
+        <option [ngValue]="3">SubTask</option>
+        <option [ngValue]="4">Bug</option>
       </select>
     </div>
 
     <div class="form-group">
       <label>Priority</label>
       <select formControlName="priority">
-        <option [value]="0">Low</option>
-        <option [value]="1">Medium</option>
-        <option [value]="2">High</option>
+        <option [ngValue]="0">Low</option>
+        <option [ngValue]="1">Medium</option>
+        <option [ngValue]="2">High</option>
       </select>
     </div>
+
   </div>
 
-  <!-- Mocked / Read-only Enterprise Fields -->
+  <!-- Assignee & Status -->
   <div class="form-row">
 
     <div class="form-group">
       <label>Assignee</label>
-      <input
-        type="text"
-        value="Unassigned"
-        disabled
-      />
+      <select formControlName="assigneeId">
+        <option [ngValue]="null">Unassigned</option>
+        <option *ngFor="let user of users" [ngValue]="user.id">
+          {{ user.name }} ({{ user.shortCode || 'N/A' }})
+        </option>
+      </select>
     </div>
 
     <div class="form-group">
       <label>Status</label>
-      <input
-        type="text"
-        value="To Do"
-        disabled
-      />
+      <select formControlName="status">
+        <option [ngValue]="0">ToDo</option>
+        <option [ngValue]="1">InProgress</option>
+        <option [ngValue]="2">CodingDone</option>
+        <option [ngValue]="3">ReadyForTest</option>
+        <option [ngValue]="4">TestDone</option>
+        <option [ngValue]="5">Closed</option>
+      </select>
     </div>
 
   </div>
 
+  <!-- Story Points & Due Date -->
   <div class="form-row">
 
     <div class="form-group">
       <label>Story Points</label>
-      <input
-        type="text"
-        value="—"
-        disabled
-      />
+      <input type="number" formControlName="storypoints" />
     </div>
 
     <div class="form-group">
       <label>Due Date</label>
-      <input
-        type="text"
-        value="Not set"
-        disabled
-      />
+      <input type="date" formControlName="dueDate" />
     </div>
 
   </div>
 
-  <!-- Action -->
+  <!-- Submit -->
   <div class="form-actions">
     <button type="submit" [disabled]="isSubmitting">
       Create Issue

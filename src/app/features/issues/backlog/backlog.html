@@ -1,4 +1,4 @@
-<section class="backlog-page" *ngIf="!isLoading; ">
+<section class="backlog-page" *ngIf="!isLoading; else loading">
   <!-- HEADER -->
   <header class="backlog-header">
     <div>
@@ -8,9 +8,7 @@
 
     <div class="backlog-actions">
       <input type="text" placeholder="Search backlog…" />
-      <button class="btn-primary">
-        + Create Issue
-      </button>
+      <button routerLink = "../issues/create" class="btn-primary">+ Create Issue</button>
     </div>
   </header>
 
@@ -37,21 +35,23 @@
   </div>
 
   <!-- EPIC + ISSUES -->
-  <div class="epic-card" *ngFor="let issue of issues">
+  <div class="epic-card" *ngFor="let issue of issues" (click)="onIssueClick(issue)"
+  style="cursor: pointer;"
+>
     <div class="epic-header">
       <div class="epic-title">
-        <span class="badge epic">{{ issue.type }}</span>
+        <span class="badge epic">{{ issueType[issue.type] }}</span>
         <strong>{{ issue.title }}</strong>
       </div>
       <div class="epic-meta">
-       
-          {{ issue.status }}
-      
+        {{ issueStatus[issue.status] }}
       </div>
     </div>
 
     <!-- CHILD TASKS/STORIES -->
-   
+    <!-- Add child components here if needed -->
+  </div>
+</section>
 
 <ng-template #loading>
   <p>Loading backlog...</p>

@@ -8,6 +8,7 @@ import { ProjectService } from '../../core/services/project-service';
 import { AuthService } from '../../core/services/auth-service';
 import { UserService } from '../../core/services/user-service';
 import { User } from '../../models/user.model';
+import { ProjectStatus } from '../../models/enum/projectstatusEnum';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userName = 'Aniruddh'; // later decode from token or profile API
 
   projects: ProjectResponseModel[] = [];
+  projectStatus = ProjectStatus;
   selectedProjectId: string | null = null;
   isLoadingProjects = false;
  userId: string | null = null;
@@ -68,7 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     const sub = this.projectService.getAllProjects().subscribe({
       next: (projects) => {
-        this.projects = projects.filter(p => p.status === 'Active');
+        this.projects = projects.filter(p => p.status === this.projectStatus.Active);
         this.isLoadingProjects = false;
 
         if (this.projects.length && !this.selectedProjectId) {

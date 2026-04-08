@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProjectResponseModel } from '../../../models/project/project-response.model';
 import { ProjectService } from '../../../core/services/project-service';
+import { ProjectStatus } from '../../../models/enum/projectstatusEnum';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class ProjectList implements OnInit {
 
   projects: ProjectResponseModel[] = [];
   isLoading = true;
+
+  projectStatus = ProjectStatus;
 
   constructor(private projectService: ProjectService) {}
 

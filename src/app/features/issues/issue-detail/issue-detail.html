@@ -1,1 +1,91 @@
-<p>issue-detail works!</p>
+<div class="issue-page" *ngIf="issue">
+
+  <!-- HEADER -->
+  <div class="issue-header">
+    <span class="issue-key">{{ issue.key }}</span>
+
+    <input
+      class="issue-title-input"
+      [(ngModel)]="issue.title"
+    />
+
+    <select [(ngModel)]="issue.issuestatus">
+      <option [ngValue]="0">To Do</option>
+      <option [ngValue]="1">In Progress</option>
+      <option [ngValue]="2">Coding Done</option>
+      <option [ngValue]="3">Ready For Test</option>
+      <option [ngValue]="4">Test Done</option>
+      <option [ngValue]="5">Closed</option>
+    </select>
+  </div>
+
+  <div class="issue-body">
+
+    <!-- LEFT -->
+    <div class="issue-main">
+
+      <section class="block">
+        <h3>Description</h3>
+        <textarea [(ngModel)]="issue.description"></textarea>
+      </section>
+
+      <section class="block">
+        <h3>Story Points</h3>
+        <input type="number" [(ngModel)]="issue.storyPoints" />
+      </section>
+
+      <section class="block">
+        <h3>Comments</h3>
+
+        <div *ngFor="let c of issue.comments">
+          <strong>{{ c.author }}</strong>
+          <p>{{ c.message }}</p>
+        </div>
+
+        <textarea [(ngModel)]="newComment"></textarea>
+        <button (click)="addComment()">Add Comment</button>
+      </section>
+
+      <button class="primary-btn" (click)="saveIssue()">Save</button>
+    </div>
+
+    <!-- RIGHT -->
+    <aside class="issue-sidebar">
+
+      <div>
+        <label>Type</label>
+        <select [(ngModel)]="issue.issuetype">
+          <option [ngValue]="0">Task</option>
+          <option [ngValue]="1">Bug</option>
+          <option [ngValue]="2">Story</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Assignee</label>
+        <select [(ngModel)]="issue.assignee">
+          <option [ngValue]="null">Unassigned</option>
+          <option *ngFor="let user of users" [ngValue]="user.id">
+            {{ user.name }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label>Priority</label>
+        <select [(ngModel)]="issue.priority">
+          <option [ngValue]="0">Low</option>
+          <option [ngValue]="1">Medium</option>
+          <option [ngValue]="2">High</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Due Date</label>
+        <input type="date" [(ngModel)]="issue.dueDate" />
+      </div>
+
+    </aside>
+
+  </div>
+</div>

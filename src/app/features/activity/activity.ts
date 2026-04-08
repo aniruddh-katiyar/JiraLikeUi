@@ -30,24 +30,26 @@ export class ActivityComponent implements OnInit, OnDestroy {
       this.route.parent?.snapshot.paramMap.get('projectId');
 
     if (!projectId) return;
-
-    this.activityHttp.getProjectActivities(projectId)
-      .subscribe(history => {
-        this.activities = history;
-      });
-
-    this.sub = this.activityHub.activity$.subscribe(activity => {
+this.sub = this.activityHub.activity$.subscribe(activity => {
       if (!activity) return;
 
       const exists = this.activities.some(
         a => a.createdAt === activity.createdAt &&
-             a.entityId === activity.entityId
+             a.entityId === activity.entityId && a.performByName === activity.performByName
+             && a.action === activity.action 
       );
 
       if (!exists) {
         this.activities.unshift(activity);
       }
     });
+    
+    this.activityHttp.getProjectActivities(projectId)
+      .subscribe(history => {
+        this.activities = history;
+      });
+
+    
   }
 
   ngOnDestroy(): void {

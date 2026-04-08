@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ProjectResponseModel } from '../../models/project/project-response.model';
-import { User } from '../../models/user.model';
+
 import { Observable } from 'rxjs';
+import { User } from '../../models/user.model';
 
 
 @Injectable({
@@ -17,5 +18,12 @@ export class UserService {
   getUserById(userId : string): Observable<User> 
   {
       return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
-    }
+   }
+   
+    loadUsers(): Observable<User[]> {
+  return this.http.get<User[]>(`${this.apiUrl}/users`);
 }
+}
+
+export type { User };
+
