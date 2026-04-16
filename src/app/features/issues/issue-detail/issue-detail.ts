@@ -20,7 +20,8 @@ import { UserService } from '../../../core/services/user-service';
 })
 export class IssueDetail implements OnInit {
 
-  issue!: IssueDetailModel;
+  issue!: any;
+
   users: any[] = [];
 
   IssueStatus = IssueStatus;
@@ -36,20 +37,64 @@ export class IssueDetail implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const issueId = this.route.snapshot.paramMap.get('id')!;
 
-    // Load issue
-    this.issueService.getIssueById(issueId).subscribe(res => {
-      this.issue = res;
+    this.route.paramMap.subscribe(params => {
+
+      const issueId = params.get('issueId')!;
+      const projectId = this.route.parent?.snapshot.paramMap.get('projectId')!;
+
+      if (!projectId || !issueId) {
+        console.error('Invalid route params', { projectId, issueId });
+        return;
+      }
+
+      this.issueService.getIssueById(projectId, issueId)
+        .subscribe(res => {
+
+          this.issue = {
+            ...res,
+
+            comments: res.comments || [],
+
+            attachments: [
+              {
+                fileName: 'design-doc.pdf',
+                url: '#'
+              }
+            ],
+
+            linkedIssues: [
+              {
+                key: 'JIRA-88',
+                title: 'Authentication Refactor'
+              }
+            ],
+
+            subTasks: [
+              {
+                title: 'Fix API Validation',
+                completed: false
+              },
+              {
+                title: 'Write Unit Tests',
+                completed: true
+              }
+            ]
+          };
+
+        });
+
     });
 
-    // Load users
     this.userService.loadUsers().subscribe(res => {
       this.users = res;
     });
+
   }
 
+
   addComment(): void {
+
     if (!this.newComment.trim()) return;
 
     this.issue.comments.push({
@@ -60,27 +105,54 @@ export class IssueDetail implements OnInit {
     });
 
     this.newComment = '';
+
   }
 
+
+  uploadAttachment(event: any): void {
+
+    const files = event.target.files;
+
+    if (!files.length) return;
+
+    for (let file of files) {
+
+      this.issue.attachments.push({
+        fileName: file.name,
+        url: '#'
+      });
+
+    }
+
+  }
+
+
   saveIssue(): void {
+
     const payload = {
+
       request: {
         Title: this.issue.title,
+
         Description: this.issue.description,
+
         ParentIssueId: this.issue.parentIssueId,
 
         Priority: this.issue.priority,
+
         Type: this.issue.issuetype,
 
         IssueStatus: this.issue.issuestatus,
+
         AssigneeId: this.issue.assignee,
 
-        StoryPoints: Number(this.issue.storyPoints|| 0),
+        StoryPoints: Number(this.issue.storyPoints || 0),
 
         DueDate: this.issue.dueDate
           ? new Date(this.issue.dueDate).toISOString()
           : null
       }
+
     };
 
     this.issueService.updateIssue(this.issue.id, payload)
@@ -88,5 +160,7 @@ export class IssueDetail implements OnInit {
         next: () => alert('Issue updated successfully'),
         error: () => alert('Update failed')
       });
+
   }
+
 }

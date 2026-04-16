@@ -47,6 +47,8 @@
       class="btn btn-primary">
       + Project
     </a>
+
+   
   </div>
 
   <!-- RIGHT -->
@@ -77,6 +79,13 @@
         [routerLink]="['/app/projects', selectedProjectId, 'issues', 'create']"
         class="btn btn-primary">
         + Create Issue
+      </a>
+      
+      <a
+        *ngIf="selectedProjectId"
+        [routerLink]="['/app/projects', selectedProjectId, 'sprint', 'create']"
+        class="btn btn-primary">
+        + Create New Sprint
       </a>
 
       <a

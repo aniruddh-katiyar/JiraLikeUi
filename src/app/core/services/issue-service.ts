@@ -43,11 +43,13 @@ export class IssueService {
       `${this.apiUrl}/projects/${projectId}/issues`
     );
   }
-getIssueById(issueId: string): Observable<IssueDetailModel> {
+getIssueById(projectId: string, issueId: string): Observable<IssueDetailModel> {
   return this.http.get<IssueDetailModel>(
-    `${this.apiUrl}/issues/${issueId}`
+    `${this.apiUrl}/projects/${projectId}/issues/${issueId}`
   );
 }
+
+
 
 updateIssue(issueId: string, payload: any): Observable<any> {
   return this.http.put(

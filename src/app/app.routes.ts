@@ -29,6 +29,7 @@ import { CreateIssueComponent } from './features/issues/create-issue/create-issu
 import { ActivityComponent } from './features/activity/activity';
 import { IssueDetail } from './features/issues/issue-detail/issue-detail';
 import { AddMemberComponent } from './features/member-component/add-member-component/add-member-component';
+import { AddSprint } from './features/sprint/add-sprint/add-sprint';
 
 export const routes: Routes = [
 
@@ -59,7 +60,8 @@ export const routes: Routes = [
           { path: 'backlog', component: Backlog },
           { path: 'issues', component: Board },
           { path: 'issues/create', component: CreateIssueComponent },
-          { path: 'issuedetails', component: IssueDetail },
+           { path: 'sprint/create', component: AddSprint },
+           { path: 'issuedetails/:issueId', component: IssueDetail },
           { path: 'sprint', component: SprintPageComponent },
           { path: 'activity', component: ActivityComponent },
           { path: 'chat', component: Chat },
